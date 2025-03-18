@@ -97,9 +97,18 @@ Examples:
  - If no query parameters are provided, all players are returned.
  - The `isActive` parameter is case-sensitive and must be "true" or "false".
   
-### Player Importer
 
-Navigate to `player-importer`. Install the project's dependencies with `pnpm i` and run `pnpm start` to launch the script. 
+## Player Importer
+
+The `Player Importer` script fetches player data from the Transfermarkt API for a specific club and saves it to a `players.txt` file. It tracks progress using a state file (`import-state-club-{clubId}.json`) to resume imports from the last processed player.
+
+### Usage
+
+Navigate to `player-importer`. 
+
+1. Install the dependencies with `pnpm i`
+2. Run the script: `pnpm start`
+
 
 It keeps track of saved players by storing the current index on a file.
 
