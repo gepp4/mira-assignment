@@ -5,13 +5,12 @@ FROM base AS builder
 RUN apk add --no-cache gcompat
 WORKDIR /app
  
-COPY package*json pnpm-lock.yaml* tsconfig.json ./
+COPY package*json pnpm-lock.yaml* tsconfig.json drizzle.config.ts ./
 
 COPY  src ./src/
 
 RUN \
-  if [ -f package-lock.json ]; then npm ci && npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then npm i -g corepack@latest && corepack enable pnpm && pnpm i --frozen-lockfile && pnpm run build; \
+  if [ -f pnpm-lock.yaml ]; then npm i -g corepack@latest && corepack enable pnpm && pnpm i --frozen-lockfile && pnpm run build; \
   else echo "Lockfile not found." && exit 1; \
   fi
 
@@ -28,4 +27,4 @@ COPY --from=builder --chown=hono:nodejs /app/package.json /app/package.json
 USER hono
 EXPOSE 3000
 
-CMD ["node", "/app/dist/index.js"]
+CMD ["node", "/app/dist/src/index.js"]

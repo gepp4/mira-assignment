@@ -11,9 +11,9 @@ app.onError((err, c) => {
     logger.error(`Handled, ${err.message}`);
     return err.getResponse();
   } else {
-    logger.error(`Unhandled, ${err.message}`);
+    logger.error(`Unhandled, Message: ${err.message}, Stack: ${err.stack}`);
     return new HTTPException(500, {
-      message: JSON.stringify({ message: `Unhandled error, ${err.message}` }),
+      message: JSON.stringify({ message: `Unhandled error` }),
       cause: err,
     }).getResponse();
   }

@@ -33,10 +33,10 @@ for (let i = 0; i < N_PLAYERS; i++) {
   const player = {
     name: faker.person.fullName(),
     role: faker.helpers.arrayElement([
-      "Goalkeeper",
-      "Defender",
-      "Midfielder",
-      "Forward",
+      "goalkeeper",
+      "defender",
+      "midfielder",
+      "forward",
     ]),
     club: faker.helpers.arrayElement(teams),
     isActive: faker.datatype.boolean(),

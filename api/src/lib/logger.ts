@@ -6,16 +6,10 @@ const stdOutTransport = {
   target: "pino/file",
 };
 
-const fileTransport = {
-  target: "pino/file",
-  options: { destination: "./app.log" },
-};
-
 const transports = pino.transport({
-  targets: [stdOutTransport, fileTransport],
+  targets: [stdOutTransport],
 });
 const logger = pino.pino(transports);
-
 
 const customLogger = (message: string, ...rest: string[]) => {
   logger.debug(message, ...rest);
