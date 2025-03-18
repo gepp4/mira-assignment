@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.12.0/.schema/devbox.schema.json",
+  "packages": [
+    "typescript@latest",
+    "git@latest",
+    "nodejs@23.6.1",
+    "nodePackages.ts-node@latest",
+    "pnpm@latest",
+    "vscode@latest"
+  ],
+  "shell": {
+    "init_hook": ["pnpm install"],
+    "scripts": {
+      "test": ["echo \"Error: no test specified\" && exit 1"]
+    }
+  }
+}
